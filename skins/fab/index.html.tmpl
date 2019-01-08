@@ -1,4 +1,4 @@
-## Copyright 2018 Matthew Wall
+## Copyright 2018-2019 Matthew Wall
 ## Distributed under terms of GPLv3
 #errorCatcher Echo
 #encoding UTF-8
@@ -44,9 +44,9 @@
 #end if
 #end def
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head profile="http://www.w3.org/2005/10/profile">
+<!DOCTYPE html>
+<html>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="refresh" content="300" />
     <title>$station.location</title>
@@ -102,17 +102,6 @@ $get_winddir($current.windDir.raw)
             <td class='units'>$unit.label.rain</td>
             <td class='icon'><img src="icons/raindrop.png"/></td>
           </tr>
-
-<!--
-
-          <tr>
-            <td class='current-value'>$current.UV</td>
-            <td></td>
-            <td></td>
-            <td class='icon'><img src="icons/sun.png"/></td>
-          </tr>
-
--->
 
         </table>
       </div>
