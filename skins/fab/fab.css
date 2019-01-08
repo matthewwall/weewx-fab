@@ -1,0 +1,89 @@
+/* CSS for the fab skin */
+/* Copyright 2010-2018 Matthew Wall */
+/* Distributed under terms of GPLv3 */
+
+/* use the fonts from google */
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans'); */
+
+/* use the local fonts */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('font/OpenSans.woff') format('woff'),
+    url('font/OpenSans.woff2') format('woff2');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Open Sans', arial, sans-serif;
+    background-color: #fdf1e1;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #4282b4;
+}
+a:visited {
+    color: #4282b4;
+}
+a:hover {
+    color: #4282b4;
+}
+
+.content {
+    width: 50%;
+}
+
+.page-title {
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.page-subtitle {
+    font-size: 80%;
+    font-weight: normal;
+}
+
+.lastupdate {
+    margin-top: 50px;
+    font-size: 80%;
+}
+
+.current-conditions {
+}
+
+.current-temp {
+    font-size: 250%;
+}
+
+.current-heatindex {
+    color: #aa4444;
+}
+
+.current-windchill {
+    color: #4444aa;
+}
+
+.current-value {
+    text-align: right;
+}
+
+.units {
+    font-size: 80%;
+}
+
+.icon {
+    padding-right: 20px;
+}
+
+img {
+    width: 16px;
+}
+
+.forecast {
+    margin-top: 20px;
+}

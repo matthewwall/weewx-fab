@@ -1,0 +1,130 @@
+## Copyright 2018 Matthew Wall
+## Distributed under terms of GPLv3
+#errorCatcher Echo
+#encoding UTF-8
+
+## note: these thresholds are for millibar, not inHg
+#def get_pressure_trend($x)
+#if $x > 6
+      &#8679;&#8679;&#8679;
+#elif $x > 3
+      &#8679;&#8679;
+#elif $x > 0.5
+      &#8679;
+#elif $x < -6
+      &#8681;&#8681;&#8681;
+#elif $x < -3
+      &#8681;&#8681;
+#elif $x < 0.5
+      &#8681;
+#end if
+#end def
+
+#def get_winddir($x)
+#if $x is None:
+      -
+#elif $x < 22.5
+      &#8593;
+#elif $x < 67.5
+      &#8599;
+#elif $x < 112.5
+      &#8594;
+#elif $x < 157.5
+      &#8600;
+#elif $x < 202.5
+      &#8595;
+#elif $x < 247.5
+      &#8601;
+#elif $x < 292.5
+      &#8592;
+#elif $x < 337.5
+      &#8598;
+#else
+      &#8593;
+#end if
+#end def
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="refresh" content="300" />
+    <title>$station.location</title>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="fab.css"/>
+    <link rel="stylesheet" type="text/css" href="forecast_iconic.css"/>
+    <script type="text/javascript" src="cookie.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class='content'>
+
+      <div class='current-conditions'>
+        <table><tr><td>
+        <table>
+          <tr>
+            <td class='current-temp'>$current.outTemp.formatted</td>
+            <td>
+              <table>
+                <tr><td class='current-heatindex'>
+                    $current.heatindex.formatted</td></tr>
+                <tr><td class='current-windchill'>
+                    $current.windchill.formatted</td></tr>
+              </table>
+            </td>
+            <td class='units'>$unit.label.outTemp</td>
+            <td class='icon'><img src="icons/thermometer.png"/></td>
+          </tr>
+        </table>
+        </td><td>
+        <table>
+          <tr>
+            <td class='current-value'>$current.barometer.formatted</td>
+            <td>
+#if $varExists('trend') and $trend.barometer.raw is not None
+$get_pressure_trend($trend.barometer.mbar.raw)
+#end if
+            </td>
+            <td class='units'>$unit.label.barometer</td>
+            <td class='icon'></td>
+          </tr>
+          <tr>
+            <td class='current-value'>
+              $current.windSpeed.formatted $current.windDir.ordinal_compass
+            </td>
+            <td>
+$get_winddir($current.windDir.raw)
+            </td>
+            <td class='units'>$unit.label.windSpeed</td>
+            <td class='icon'><img src="icons/flag.png"/></td>
+          </tr>
+          <tr>
+            <td class='current-value'>$day.rain.sum.formatted</td>
+            <td></td>
+            <td class='units'>$unit.label.rain</td>
+            <td class='icon'><img src="icons/raindrop.png"/></td>
+          </tr>
+
+<!--
+
+          <tr>
+            <td class='current-value'>$current.UV</td>
+            <td></td>
+            <td></td>
+            <td class='icon'><img src="icons/sun.png"/></td>
+          </tr>
+
+-->
+
+        </table>
+        </td></tr></table>
+      </div>
+
+      <p class="lastupdate">
+        conditions at $current.dateTime.format("%H:%M:%S %d %b %Y")
+      </p>
+    </div>
+  </body>
+</html>
