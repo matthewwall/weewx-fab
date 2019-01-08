@@ -3,16 +3,20 @@ Copyright 2017-2019 Matthew Wall
 
 Installation instructions:
 
-1) run the installer:
+1) download the skin:
 
-wee_extension --install weewx-fab.tgz
+wget -O weewx-fab.zip https://github.com/matthewwall/weewx-fab/archive/master.zip
 
-2) restart weewx:
+2) run the installer:
+
+wee_extension --install weewx-fab.zip
+
+3) restart weewx:
 
 sudo /etc/init.d/weewx stop
 sudo /etc/init.d/weewx start
 
-3) look at the result in the 'fab' subdirectory, nominally
+4) look at the result in the 'fab' subdirectory, nominally
 
 public_html/fab
 
@@ -25,3 +29,7 @@ like this in skin.conf:
 
 [CheetahGenerator]
     search_list_extensions = user.forecast.ForecastVariables
+
+Instructions for installing and using the forecast extension:
+
+    https://github.com/weewx/weewx/wiki/forecasting
