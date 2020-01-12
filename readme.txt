@@ -1,5 +1,6 @@
 This is the skin fab for the weewx weather system.
 Copyright 2017-2019 Matthew Wall
+Distributed under terms of the GPLv3
 
 Installation instructions:
 
